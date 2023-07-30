@@ -1,0 +1,6 @@
+fetch('https://jsonplaceholder.typicode.com/posts/1')
+  .then(response => response.json())
+  .then(data => fetch(`https://localhost:comments?postId=${data.id}`))
+  .then(comments => comments.json())
+  .then(commentsData => console.log(commentsData))
+  .catch(error => console.error('Error:', error));
